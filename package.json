@@ -1,1 +1,16 @@
-{"name":"wasalni","version":"3.0.0","private":true,"scripts":{"start":"node server.js","test":"node test.js"},"engines":{"node":">=18"},"dependencies":{"pg":"^8.11.0","web-push":"^3.6.7"}}
+{
+ "name": "wasalni",
+ "version": "3.0.0",
+ "private": true,
+ "scripts": {
+  "start": "node server.js",
+  "test": "node test.js && node test2.js"
+ },
+ "engines": {
+  "node": ">=18"
+ },
+ "dependencies": {
+  "pg": "^8.11.0",
+  "web-push": "^3.6.7"
+ }
+}
