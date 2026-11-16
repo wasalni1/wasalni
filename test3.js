@@ -53,6 +53,6 @@ const reg=async(ph,role,x={})=>{const o=await call('otp',{phone:ph,country:'EG'}
  // توصيل طلبات
  const dv=await mkDriver('01033333331',30.0,31.0,'delivery');
  const o=(await call('rides',{vehicle:'delivery',...pts,km:4,offer:30,order:{place:'مطعم الشرق',qty:2,desc:'وجبتان كفتة',price:150,comment:'بدون بصل'}},rd.token)).j.ride;
- T('order saved',o.kind==='order'&&o.order.place==='مطعم الشرق'&&o.order.price===150&&o.pax===1);const ol=(await call('rides/open',null,dv.token)).j.rides;T('delivery captain sees order',ol.length===1&&ol[0].order.desc==='وجبتان كفتة');
+ T('order saved',o.kind==='order'&&o.order.place==='مطعم الشرق'&&o.order.price===150&&o.pax===1);const ol=(await call('rides/open',null,dv.token)).j.rides;T('delivery captain sees order',ol.length===1&&ol[0].order.items[0].desc==='وجبتان كفتة'&&ol[0].order.desc==='2× وجبتان كفتة');
  T('delivery notified',(await call('notes',null,dv.token)).j.notes[0].title==='طلب توصيل جديد');
  s.kill();console.log(`نجح ${ok} / فشل ${bad}`);process.exit(bad?1:0)})();
